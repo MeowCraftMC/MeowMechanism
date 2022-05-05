@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "meowmechanism",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Meow Mechanism",
+  "description": "A fabric mod with some little mechanisms for MeowCraft V4.",
   "authors": [
-    "Me!"
+    "qyl27"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/MeowCraftMC/MeowMechanism",
+    "sources": "https://github.com/MeowCraftMC/MeowMechanism"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "AGPL-3.0",
+  "icon": "assets/meowmechanism/icon.png",
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
+    "server": [
+      "al.yn.meowmechanism.MeowMechanism"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "meowmechanism.mixins.json",
+    "meowmechanism.module.harvest.mixins.json",
+    "meowmechanism.module.animals.mixins.json"
   ],
 
   "depends": {
@@ -33,6 +35,5 @@
     "java": ">=17"
   },
   "suggests": {
-    "another-mod": "*"
   }
 }

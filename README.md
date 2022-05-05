@@ -1,9 +1,10 @@
-# Fabric Example Mod
+# MeowMechanismMod (M11M)
+A fabric mod with some little mechanisms for MeowCraft V4.
 
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+## Contents and Todos
+- [x] Add right click harvest for crops.
+- [x] Use bone meals to sugar cane.
+- [ ] Eating watermelon slice with melon seed.
+- [ ] Animals will run away from the player who hurt their species nearby.
+- [ ] Drop all blocks which was broken in a creepers explode.
+- [ ] Configuration support.
