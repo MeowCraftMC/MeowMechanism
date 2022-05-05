@@ -4,6 +4,7 @@
   "package": "al.yn.meowmechanism.module.animals.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AnimalEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
