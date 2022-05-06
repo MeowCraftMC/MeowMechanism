@@ -1,15 +1,15 @@
 package al.yn.meowmechanism.module.harvest.mixin;
 
+import al.yn.meowmechanism.interfaces.IServerPlayerEntityMixin;
 import al.yn.meowmechanism.module.harvest.HarvestHelper;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CocoaBlock;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
@@ -39,10 +39,10 @@ public abstract class CropBlockMixin extends PlantBlock {
     // qyl27: When right-click the mature crop will be harvested.
     @Intrinsic
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient()) {
+        if (!world.isClient() && player instanceof ServerPlayerEntity) {
             if (isMature(state)) {
-                var serverPlayer = (ServerPlayerEntity) player;
-                serverPlayer.playSound(SoundEvents.ITEM_CROP_PLANT, 1.0f, 1.0f);
+                var serverPlayer = (IServerPlayerEntityMixin) player;
+                serverPlayer.playSoundToClient(SoundEvents.BLOCK_CROP_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 return HarvestHelper.harvest(state, (ServerWorld) world, pos, player, hand, getSeedsItem().asItem(), getAgeProperty());
             }
         }
