@@ -1,5 +1,6 @@
 package al.yn.meowmechanism;
 
+import al.yn.meowmechanism.module.be_a_cat.BeACat;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,5 +15,7 @@ public class MeowMechanism implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
         logger.info("MeowMechanism " + VERSION + " is running!");
+
+        new BeACat();
     }
 }

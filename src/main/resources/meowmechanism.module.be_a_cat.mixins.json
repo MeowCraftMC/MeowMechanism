@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "al.yn.meowmechanism.module.be_a_cat.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "CatPlayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

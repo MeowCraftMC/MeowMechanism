@@ -1,0 +1,43 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:pink_dye"
+        },
+        {
+            "item": "minecraft:light_blue_dye"
+        },
+        {
+            "item": "minecraft:white_dye"
+        },
+        {
+            "item": "minecraft:sugar"
+        }
+    ],
+    "result": {
+        "item": "minecraft:paper",
+        "count": 1,
+        "data": {
+            "CustomModelData": 1,
+            "display": {
+                "Name": {
+                    "translate": "item.meowcraft.proxyneva.name",
+                    "color": "aqua",
+                    "italic": false,
+                    "nbtcrafting:stringify": true
+                },
+                "Lore": [
+                    {
+                        "translate": "item.meowcraft.proxyneva.lore",
+                        "color": "gray",
+                        "italic": false,
+                        "nbtcrafting:stringify": true
+                    }
+                ]
+            },
+            "meowitems": {
+                "id": "meowcraft:proxyneva"
+            }
+        }
+    }
+}

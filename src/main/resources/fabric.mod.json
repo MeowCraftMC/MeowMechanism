@@ -25,7 +25,8 @@
   "mixins": [
     "meowmechanism.mixins.json",
     "meowmechanism.module.harvest.mixins.json",
-    "meowmechanism.module.animals.mixins.json"
+    "meowmechanism.module.animals.mixins.json",
+    "meowmechanism.module.be_a_cat.mixins.json"
   ],
 
   "depends": {
