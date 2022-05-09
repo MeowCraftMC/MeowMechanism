@@ -49,14 +49,11 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand "version": project.version
     }
-
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 sourceSets {
     main {
         resources {
-            srcDir "src/main/resources"
             srcDir "src/main/pack"
         }
     }
