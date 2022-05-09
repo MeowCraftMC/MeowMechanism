@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +23,8 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements IS
     @Shadow
     public ServerPlayNetworkHandler networkHandler;
 
+    @Shadow public abstract ServerWorld getWorld();
+
     @Override
     public void playSoundToClient(SoundEvent event, SoundCategory category, float volume, float pitch) {
         networkHandler.sendPacket(new PlaySoundS2CPacket(event, category,
@@ -30,7 +33,15 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements IS
 
     @Override
     public void playSoundIn(BlockPos pos, SoundEvent event, SoundCategory category, float volume, float pitch) {
-        networkHandler.sendPacket(new PlaySoundS2CPacket(event, category,
-                pos.getX(), pos.getY(), pos.getZ(), volume, pitch));
+        broadcastSound(pos, event, category, volume, pitch, true);
+    }
+
+    @Override
+    public void broadcastSound(BlockPos pos, SoundEvent event, SoundCategory category, float volume, float pitch, boolean distance) {
+        var playerWorld = getWorld();
+
+        if (!playerWorld.isClient) {
+            playerWorld.playSound(pos.getX(), pos.getY(), pos.getZ(), event, category, volume, pitch, distance);
+        }
     }
 }

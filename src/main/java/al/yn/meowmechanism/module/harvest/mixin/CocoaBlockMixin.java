@@ -30,7 +30,7 @@ public abstract class CocoaBlockMixin extends HorizontalFacingBlock {
         if (!world.isClient() && player instanceof ServerPlayerEntity) {
             if (state.get(CocoaBlock.AGE) >= 2) {
                 var serverPlayer = (IServerPlayerEntityMixin) player;
-                serverPlayer.playSoundToClient(SoundEvents.BLOCK_CROP_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                serverPlayer.playSoundIn(pos, SoundEvents.BLOCK_CROP_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 return HarvestHelper.harvest(state, (ServerWorld) world, pos, player, hand, Items.COCOA_BEANS, CocoaBlock.AGE);
             }
         }
