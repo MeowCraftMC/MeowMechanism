@@ -36,8 +36,7 @@
                 ]
             },
             "meowmechanism": {
-                "id": "meowcraft:proxyneva",
-                "strict": true
+                "id": "meowcraft:proxyneva"
             }
         }
     }
